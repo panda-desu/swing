@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Нүүр",
+      "link": "/",
+      "img": "/img/sidebar/home.png",
+      "selectedImg": "/img/sidebar/homeSel.png",
+      "id": 0
+    },
+    
+    {
+      "name": "Хуваарь",
+      "link": "",
+      "img": "/img/sidebar/calendar.png",
+      "selectedImg": "/img/sidebar/calendarSel.png",
+      "id": 2
+    }
+  ]
