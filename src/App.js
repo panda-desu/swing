@@ -5,26 +5,28 @@ import Login from "./partials/Login";
 import Home from "./pages/Home";
 import NotFound from "./partials/NotFound";
 import { ToastContainer } from "react-toastify";
+import Class from "./pages/Class";
 
 function App() {
   return (
     <div>
-     <Router>  
-      <Routes>
-        <Route path="/login" element={<Login />} />
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
           <Route
             element={
               <PrivateRoute>
                 <Layout />
               </PrivateRoute>
-              }
-            >
-              <Route path="/" element={<Home />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />{" "}
-          </Routes>
-        </Router>
-        <ToastContainer />
+            }
+          >
+            <Route path="/" element={<Home />} />
+            <Route path="/class" element={<Class />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />{" "}
+        </Routes>
+      </Router>
+      <ToastContainer />
     </div>
   );
 }

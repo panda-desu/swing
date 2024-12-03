@@ -1,17 +1,17 @@
 [
-    {
-      "name": "Нүүр",
-      "link": "/",
-      "img": "/img/sidebar/home.png",
-      "selectedImg": "/img/sidebar/homeSel.png",
-      "id": 0
-    },
-    
-    {
-      "name": "Хуваарь",
-      "link": "",
-      "img": "/img/sidebar/calendar.png",
-      "selectedImg": "/img/sidebar/calendarSel.png",
-      "id": 2
-    }
-  ]
+  {
+    "name": "Нүүр",
+    "link": "/",
+    "img": "/img/sidebar/home.png",
+    "selectedImg": "/img/sidebar/homeSel.png",
+    "id": 0
+  },
+
+  {
+    "name": "Анги",
+    "link": "/class",
+    "img": "/img/sidebar/graduation.png",
+    "selectedImg": "/img/sidebar/graduationSel.png",
+    "id": 2
+  }
+]
