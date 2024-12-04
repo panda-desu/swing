@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
-import { login } from "../service/user.service";
+// import { login } from "../service/user.service";
 
 const Login = () => {
   const [username, setUsername] = useState("");

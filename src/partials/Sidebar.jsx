@@ -46,9 +46,9 @@ const Sidebar = () => {
           );
         })}
       </div>
-      <div className="mb-8 border-t">
+      {/* <div className="mb-8 border-t">
         <div className="flex items-center"></div>
-      </div>
+      </div> */}
     </div>
   );
 };
