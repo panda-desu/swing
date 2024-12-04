@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import NotFound from "./partials/NotFound";
 import { ToastContainer } from "react-toastify";
 import Class from "./pages/Class";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

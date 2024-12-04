@@ -62,27 +62,28 @@ const Home = () => {
   };
 
   return (
-    <div className="w-10/12 m-auto mt-11 pt-10">
-      <div className="p-6 max-w-full h-full mx-auto bg-[#fff] rounded-lg">
+    <div className="w-11/12 md:w-10/12 m-auto mt-6 md:mt-11 pt-6 md:pt-10 pb-10 min-h-[calc(89vh)]">
+      <div className="p-4 md:p-6 max-w-full h-full mx-auto bg-[#fff] rounded-lg">
         <div className="flex items-center justify-between mb-4">
           <button
             onClick={() => changeMonth("prev")}
-            className="w-[100px] py-1 border borer-[#BBD0FF] rounded-md text-[#4E58FF] hover:bg-[#BBD0FF]"
+            className="w-[60px] sm:w-[80px] md:w-[100px] py-1 border border-[#BBD0FF] rounded-md text-[#4E58FF] hover:bg-[#BBD0FF] text-sm sm:text-base"
           >
-            Previous
+            Prev
           </button>
-          <h2 className="text-xl font-semibold ">
+          <h2 className="text-base md:text-xl font-semibold">
             {currentDate.format("MMMM YYYY")}
           </h2>
           <button
             onClick={() => changeMonth("next")}
-            className="w-[100px] py-1 border borer-[#BBD0FF] rounded-md text-[#4E58FF] hover:bg-[#BBD0FF]"
+            className="w-[60px] sm:w-[80px] md:w-[100px] py-1 border border-[#BBD0FF] rounded-md text-[#4E58FF] hover:bg-[#BBD0FF] text-sm sm:text-base"
           >
             Next
           </button>
         </div>
 
-        <div className="grid grid-cols-7 gap-2 text-center text-sm font-medium">
+        {/* Days of the Week */}
+        <div className="grid grid-cols-7 gap-2 text-center text-xs md:text-sm font-medium">
           {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
             <div
               key={day}
@@ -97,19 +98,19 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-7 gap-1 sm:gap-2">
           {Array.from({ length: startDay }).map((_, i) => (
             <div key={i}></div>
           ))}
           {daysArray.map((day) => (
             <div
               key={day}
-              className="w-[122px] h-[66px] flex items-center justify-center border rounded bg-[#fff] text-xl bg-opacity-80 text-[#4E58FF] text-center hover:text-opacity-20 cursor-pointer"
+              className="w-[40px] sm:w-full h-[40px] sm:h-[66px] flex items-center justify-center border rounded bg-[#fff] text-base md:text-xl text-[#4E58FF] hover:text-opacity-70 cursor-pointer"
               onClick={() => openModal(day)}
             >
-              <div>
-                {day}
-                <div className="text-sm text-gray-500 max-h-[20px] px-2">
+              <div className="relative">
+                <p className="text-center"> {day}</p>
+                <div className="text-[8px] md:text-sm text-gray-500 px-1 absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2">
                   {schedules[day] && (
                     <Dotdotdot clamp={1}>
                       {schedules[day]
@@ -124,18 +125,19 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-md w-[400px]">
+          <div className="bg-white p-4 sm:p-6 rounded-md w-[90%] md:w-[400px]">
             <div className="flex items-center justify-between">
-              <p className="text-xl mb-4">Schedules for {selectedDay}</p>
+              <p className="text-lg md:text-xl mb-4">
+                Schedules for {selectedDay}
+              </p>
               <button
                 onClick={() => {
                   setIsModalOpen(false);
                 }}
               >
-                <IoMdClose className="text-2xl" />
+                <IoMdClose className="text-xl md:text-2xl" />
               </button>
             </div>
             {!isAddingSchedule ? (
@@ -144,7 +146,10 @@ const Home = () => {
                   {schedules[selectedDay] &&
                   schedules[selectedDay].length > 0 ? (
                     schedules[selectedDay].map((sch, index) => (
-                      <div key={index} className="mb-2 flex justify-between">
+                      <div
+                        key={index}
+                        className="mb-2 flex justify-between text-sm"
+                      >
                         <div>
                           <strong>
                             {sch.startTime} - {sch.endTime}
@@ -165,7 +170,7 @@ const Home = () => {
                   <div className="flex justify-end mt-4">
                     <button
                       onClick={() => setIsAddingSchedule(true)}
-                      className="px-3 py-1 border rounded-lg mb-6 flex items-center gap-1 text-[#4E58FF] text-sm"
+                      className="px-2 sm:px-3 py-1 border rounded-lg text-[#4E58FF] text-sm flex items-center gap-1"
                     >
                       Хуваарь оруулах
                       <GoPlus className="text-base" />
@@ -181,7 +186,7 @@ const Home = () => {
                   onChange={(e) =>
                     setNewSchedule({ ...newSchedule, text: e.target.value })
                   }
-                  className="border p-2 w-full mb-4"
+                  className="border p-2 w-full mb-2 sm:mb-4 text-sm"
                   placeholder="Enter your schedule"
                 />
                 <div className="flex gap-2">
@@ -194,7 +199,7 @@ const Home = () => {
                         startTime: e.target.value,
                       })
                     }
-                    className="border p-2 flex-1"
+                    className="border p-2 flex-1 text-sm"
                   />
                   <input
                     type="time"
@@ -205,19 +210,19 @@ const Home = () => {
                         endTime: e.target.value,
                       })
                     }
-                    className="border p-2 flex-1"
+                    className="border p-2 flex-1 text-sm"
                   />
                 </div>
-                <div className="flex justify-end gap-4 mt-4">
+                <div className="flex justify-end gap-2 sm:gap-4 mt-4">
                   <button
                     onClick={() => setIsAddingSchedule(false)}
-                    className="px-3 py-1 border rounded-lg mb-6 flex items-center gap-1 text-sm hover:bg-opacity-80"
+                    className="px-2 sm:px-3 py-1 border rounded-lg text-sm hover:bg-opacity-80"
                   >
                     Back
                   </button>
                   <button
                     onClick={addSchedule}
-                    className="px-3 py-1 border border-[#4E58FF] rounded-lg mb-6 flex items-center gap-1 text-[#4E58FF] text-sm hover:bg-opacity-80"
+                    className="px-2 sm:px-3 py-1 border border-[#4E58FF] rounded-lg text-[#4E58FF] text-sm hover:bg-opacity-80 flex items-center gap-1"
                   >
                     <GoPlus />
                     Нэмэх

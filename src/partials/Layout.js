@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 import Sidebar from "./Sidebar";
+import Header from "./Header";
 
 const Layout = () => {
   return (
@@ -10,7 +11,7 @@ const Layout = () => {
         <Sidebar />
       </div>
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden ">
-        {/* <Header /> */}
+        <Header />
         <main>
           <Outlet />
         </main>
